@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ASCII Art from Image</title>
+    </head>
+    <body>
+        <input type="file" id="uploader" accept="image/*" onchange="loadFile(event)" /><br /><br />
+        <b>Scale</b><br />
+        X:<input type="number" id="scaleX" value=1 />
+        Y:<input type="number" id="scaleY" value=1 /><br /><br />
+
+        <!--<canvas id="canvas" width="16" height="9" style="display: none;"></canvas>-->
+        <canvas id="canvas" width="16" height="9"></canvas><br /><br /> <!-- Temp -->
+
+        <div id="outputDiv"></div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
