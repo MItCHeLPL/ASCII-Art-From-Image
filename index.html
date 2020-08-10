@@ -7,9 +7,13 @@
     </head>
     <body>
         <div id="fileBox">
-            <input type="file" id="uploader" accept="image/*" onchange="loadFile(event)" /><br />
-            <img id="filePreview" alt="File preview" />
+            <input type="radio" id="fileRadio" name="upload" value="file" onclick="CheckRadio()" checked />
+                <input type="file" id="uploader" accept="image/*" onchange="loadFile()" /><br />
+            <input type="radio" id="urlRadio" name="upload" value="url" onclick="CheckRadio()" />
+                <input type="text" id="URLInput" onchange="loadURL()" onpaste="loadURL()" placeholder="URL" disabled /><br />
         </div>
+
+        <img id="filePreview" alt="File preview" />
 
         <div id="settingsBox">
             <b>Scale</b><br />

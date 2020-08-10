@@ -3,6 +3,14 @@ var file = new Image();
 var filePreview = document.getElementById("filePreview");
 var isFileLoaded = false;
 
+//Image inputs
+var fileInput = document.getElementById("uploader");
+var URLInput = document.getElementById("URLInput");
+
+//Radio buttons
+var fileRadio = document.getElementById("fileRadio");
+var urlRadio = document.getElementById("urlRadio");
+
 //Uploaded image
 var width;
 var height;
@@ -31,17 +39,47 @@ var grayScale;
 var divider;
 var brLine;
 
-//Load file from file
-function loadFile(event)
-{   
-    file.src = URL.createObjectURL(event.target.files[0]);  
+//When switching inputs
+function CheckRadio()
+{
+    if(urlRadio.checked) //url
+    {
+        URLInput.disabled = false;
+
+        if(URLInput.value != "") //if url isn't empty
+        {
+            loadURL();
+        }
+    }
+    else //upload
+    {
+        URLInput.disabled = true;
+
+        if(fileInput.files.length != 0) //if upload isn't empty
+        {
+            loadFile(fileInput);
+        }
+    }
 }
+
+//Load file from file
+function loadFile()
+{   
+    if(fileRadio.checked)
+    {
+        file.src = URL.createObjectURL(fileInput.files[0]);  
+    }
+}
+
+URLInput.onpaste = loadURL(); //load image when pasted
 
 //Load image from URL
 function loadURL()
-{
-    file = new Image();   
-    file.src = document.getElementById("URLInput").value;
+{ 
+    if(urlRadio.checked)
+    {
+        file.src = URLInput.value;
+    }
 }
 
 //Process Image
@@ -131,7 +169,7 @@ function GenerateArt()
     else
     {
         //If file isn't uploaded alert the user
-        alert("You have to upload image first");
+        alert("You have to choose image first");
     }
 }
 
