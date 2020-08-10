@@ -1,3 +1,13 @@
+body
+{
+    font-family: "Lucida Console", Monaco, monospace; 
+}
+
+input
+{
+    font-family: "Lucida Console", Monaco, monospace; 
+}
+
 #fileBox
 {
     margin-bottom: 1em;
