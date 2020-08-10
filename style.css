@@ -1,0 +1,44 @@
+input[type="file"]
+{
+    margin-bottom: 1em;
+}
+
+#filePreview
+{
+    display: none;
+    height: 10em;
+    width: auto;
+
+    margin-bottom: 1em;
+}
+
+input[type="number"]
+{
+    width: 3em;
+}
+
+#infoBox
+{
+    display: none;
+}
+
+h3
+{
+    margin-bottom: 0;
+}
+
+#buttonBox
+{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#copyButton
+{
+    display: none;
+}
+
+#canvas
+{
+    display: none;
+}

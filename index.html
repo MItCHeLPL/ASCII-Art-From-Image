@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="style.css" />
         <title>ASCII Art from Image</title>
     </head>
     <body>
-        <input type="file" id="uploader" accept="image/*" onchange="loadFile(event)" /><br /><br />
-        <b>Scale</b><br />
-        X:<input type="number" id="scaleX" value=1 />
-        Y:<input type="number" id="scaleY" value=1 /><br /><br />
+        <div id="fileBox">
+            <input type="file" id="uploader" accept="image/*" onchange="loadFile(event)" /><br />
+            <img id="filePreview" alt="File preview" />
+        </div>
 
-        <!--<canvas id="canvas" width="16" height="9" style="display: none;"></canvas>-->
-        <canvas id="canvas" width="16" height="9"></canvas><br /><br /> <!-- Temp -->
+        <div id="settingsBox">
+            <b>Scale</b><br />
+            X:<input type="number" id="scaleX" value=1 />
+            Y:<input type="number" id="scaleY" value=1 />
+        </div>
+
+        <div id="infoBox">
+            <h3>Info</h3>
+            <p id="resolutionInfo">
+                Resolution:<br />
+                Characters:
+            </p>
+        </div>
+
+        <div id="buttonBox">
+            <input type="button" onclick="GenerateArt()" value="Generate" />
+            <input id="copyButton" type="button" onclick="CopyArt()" value="Copy" />
+        </div>
+
+        <canvas id="canvas"></canvas>
 
         <div id="outputDiv"></div>
 
