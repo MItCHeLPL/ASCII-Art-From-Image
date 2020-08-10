@@ -45,6 +45,7 @@ function CheckRadio()
     if(urlRadio.checked) //url
     {
         URLInput.disabled = false;
+        fileInput.disabled = true;
 
         if(URLInput.value != "") //if url isn't empty
         {
@@ -54,10 +55,11 @@ function CheckRadio()
     else //upload
     {
         URLInput.disabled = true;
+        fileInput.disabled = false;
 
         if(fileInput.files.length != 0) //if upload isn't empty
         {
-            loadFile(fileInput);
+            loadFile();
         }
     }
 }
@@ -71,7 +73,36 @@ function loadFile()
     }
 }
 
-URLInput.onpaste = loadURL(); //load image when pasted
+//load image when pasted
+URLInput.addEventListener('paste', e => 
+{
+    fileInput.files = e.clipboardData.files;
+    if(fileInput.files.length != 0) //if upload isn't empty
+    {
+        loadFile();
+    }
+
+    if(URLInput.value != "") //if url isn't empty
+    {
+        loadURL();
+    }
+})
+fileInput.addEventListener('paste', e => 
+{
+    fileInput.files = e.clipboardData.files;
+    if(fileInput.files.length != 0) //if upload isn't empty
+    {
+        loadFile();
+    }
+});
+window.addEventListener('paste', e => 
+{
+    fileInput.files = e.clipboardData.files;
+    if(fileInput.files.length != 0) //if upload isn't empty
+    {
+        loadFile();
+    }
+});
 
 //Load image from URL
 function loadURL()
@@ -96,6 +127,10 @@ file.onload = function()
     isFileLoaded = true;
 };  
 
+function InvertColors()
+{
+    colors.reverse();
+}
 
 //Put image into canvas and generate art
 function GenerateArt()
@@ -157,7 +192,7 @@ function GenerateArt()
             document.getElementById("copyButton").style.display = "initial";
 
             //Put info into info paragraph
-            resolutionInfo.innerHTML = "Resolution: <b>" + Math.round(width * scaleX) + "</b> x <b>" + Math.round(height * scaleY) + "</b>,<br />Characters: <b>" + (Math.round(width * scaleX) * Math.round(height * scaleY)) + "</b>.";
+            resolutionInfo.innerHTML = "Resolution: <b>" + Math.round(width * scaleX) + "</b> x <b>" + Math.round(height * scaleY) + "</b><br />Characters: <b>" + (Math.round(width * scaleX) * Math.round(height * scaleY)) + "</b>";
             document.getElementById("infoBox").style.display = "initial";
         }
         else

@@ -27,6 +27,11 @@ h3
     margin-bottom: 0;
 }
 
+#invertCheckbox
+{
+    margin-left: -0.1em;
+}
+
 #buttonBox
 {
     margin-top: 1em;

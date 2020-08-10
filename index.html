@@ -2,7 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta name="author" content="Michał Myszor" />
+        <meta name="description" content="ASCII Art from Image Generator" />
+
         <link rel="stylesheet" href="style.css" />
+
         <title>ASCII Art from Image</title>
     </head>
     <body>
@@ -10,7 +16,7 @@
             <input type="radio" id="fileRadio" name="upload" value="file" onclick="CheckRadio()" checked />
                 <input type="file" id="uploader" accept="image/*" onchange="loadFile()" /><br />
             <input type="radio" id="urlRadio" name="upload" value="url" onclick="CheckRadio()" />
-                <input type="text" id="URLInput" onchange="loadURL()" onpaste="loadURL()" placeholder="URL" disabled /><br />
+                <input type="text" id="URLInput" onchange="loadURL()" placeholder="URL" disabled /><br />
         </div>
 
         <img id="filePreview" alt="File preview" />
@@ -18,7 +24,9 @@
         <div id="settingsBox">
             <b>Scale</b><br />
             X:<input type="number" id="scaleX" value=1 />
-            Y:<input type="number" id="scaleY" value=1 />
+            Y:<input type="number" id="scaleY" value=1 /><br />
+
+            <input type="checkbox" id="invertCheckbox" onchange="InvertColors()" />Invert
         </div>
 
         <div id="infoBox">
