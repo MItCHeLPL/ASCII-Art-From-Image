@@ -1,6 +1,6 @@
 # ASCII Art From Image
 
-Create ASCII art from any image.
+### Create ASCII art from any image.
 
 ### [Try it out](https://mitchelpl.github.io/ASCII-Art-From-Image/)
 
