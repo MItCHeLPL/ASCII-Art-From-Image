@@ -19,7 +19,7 @@
                 <input type="text" id="URLInput" onchange="loadURL()" placeholder="URL" disabled /><br />
         </div>
 
-        <img id="filePreview" alt="File preview" />
+        <img id="filePreview" alt="File preview" src="#" />
 
         <div id="settingsBox">
             <b>Scale</b><br />
@@ -45,6 +45,13 @@
         <canvas id="canvas"></canvas>
 
         <div id="outputDiv"></div>
+
+        <footer>
+            <p>
+                © Copyright <script>document.write(new Date().getFullYear());</script>, Michał Myszor<br />
+                <a href="https://github.com/MItCHeLPL">Github</a>
+            </p>
+        </footer>
 
         <script src="script.js"></script>
     </body>
